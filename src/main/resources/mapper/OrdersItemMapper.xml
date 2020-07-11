@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shh.homework.mapper.OrdersItemMapper">
+
+    <resultMap id="BaseResultMap" type="com.shh.homework.entity.OrdersItem">
+        <id property="id" column="id"/>
+        <result property="ordersId" column="orders_id"/>
+        <result property="ordersNo" column="orders_no"/>
+        <result property="productId" column="product_id"/>
+        <result property="productPic" column="product_pic"/>
+        <result property="productName" column="product_name"/>
+        <result property="productPrice" column="product_price"/>
+        <result property="productQuantity" column="product_quantity"/>
+    </resultMap>
+</mapper>

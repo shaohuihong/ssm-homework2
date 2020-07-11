@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shh.homework.mapper.OrdersMapper">
+    <resultMap id="BaseResultMap" type="Orders">
+    <id property="id" column="id"/>
+     <result property="memberId" column="member_id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="createTime" column="create_time"/>
+        <result property="totalAmount" column="total_amount"/>
+    </resultMap>
+    <resultMap id="associationResultMap" type="com.shh.homework.entity.Orders" extends="BaseResultMap">
+    <association property="ordersItem" resultMap="com.shh.homework.mapper.OrdersItemMapper.BaseResultMap" ></association>
+    </resultMap>
+
+    <select id="selectById" resultMap="associationResultMap">
+        select o.id,o.member_id,o.order_no,o.create_time,
+        o.total_amount,i.id,i.orders_id,i.orders_no,i.product_id,i.product_pic,i.product_name,
+        i.product_price,i.product_quantity
+                from orders o left join orders_item i on o.id=i.orders_id
+                where o.id=#{id}
+    </select>
+</mapper>
