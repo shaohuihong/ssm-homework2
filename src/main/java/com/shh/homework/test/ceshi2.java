@@ -1,4 +1,4 @@
 package com.shh.homework.test;
 
-public class Mapper {
+public class ceshi2 {
 }

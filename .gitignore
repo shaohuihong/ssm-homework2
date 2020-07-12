@@ -1,2 +1,6 @@
 # Project exclude paths
 /target/
+.idea
+ssm-homework2.iml
+.gitignore
+target
